@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption and Accessories</title>
+</head>
+<body>
+    <h1>Pet Adoption</h1>
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.name }} - {{ pet.species }} - {{ pet.age }} years old
+                <a href="{{ url_for('adopt', pet_id=pet.id) }}">Adopt</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h1>Accessories</h1>
+    <ul>
+        {% for accessory in accessories %}
+            <li>{{ accessory.name }} - {{ accessory.type }}
+                <a href="{{ url_for('accessory', accessory_id=accessory.id) }}">Purchase</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
